@@ -1,7 +1,7 @@
 # windows_dfs Cookbook
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/windows_dfs.svg)](https://supermarket.chef.io/cookbooks/windows_dfs)
-[![Build status](https://ci.appveyor.com/api/projects/status/ojhleem9td663n39/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/windows-dfs/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/ojhleem9td663n39/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/windows-dfs/branch/master)[![Cookbook Version](https://img.shields.io/cookbook/v/windows_dfs.svg)](https://supermarket.chef.io/cookbooks/windows_dfs)
 
 This cookbook provides a resource for managing DFS on Windows hosts.
 
@@ -9,24 +9,85 @@ This cookbook provides a resource for managing DFS on Windows hosts.
 
 ### Platforms
 
-- Windows 8, 8.1, 10
-- Windows Server 2012 (R1, R2)
+- Windows Server 2012R2
 - Windows Server 2016
 
 ### Chef
 
-- Chef 13+
+- Chef 13.4+
 
 ## Resources
 
-### Resource 1
+## windows_dfs_server
+Sets the server configuration for dfs
 
-### Resource 2
+#### Actions
 
-### Resource 3
+- `configure` : Configures dfs with the specified settings
+
+### Properties
+
+- `use_fqdn` : Indicates whether a DFS namespace server uses FQDNs in referrals. If this parameter has a value of true, the server uses FQDNs in referrals. If this parameter has a value of false, the server uses NetBIOS names. Defaults to false
+
+## windows_dfs_folder
+
+Creates a folder within dfs as many levels deep as required
+
+#### Actions
+
+- `:install` : Creates the folder in dfs namespace
+- `:remove` : Deletes the folder in the dfs namespace
+
+#### Properties
+
+- `name` : This is the name of the folder to create, it can contain sub folders
+- `namespace_name` : The namespace this should be created within
+- `target_path` : The target that this path will connect you to
+
+### Example
+
+```ruby
+windows_dfs_folder "Some\\Nested\\Path" do
+      description "Link to MyServer share MyShare"
+      namespace_name 'prodshare'
+      target_path "\\\\server\\target_share\\Some\\Nested\\Path"
+      action :install
+end
+```
+
+```ruby
+windows_dfs_folder "Some\\Nested\\Path" do
+      namespace_name 'prodshare'
+      action :remove
+end
+```
+
+## windows_dfs_namespace
+
+Creates a dfs namespace on the local server, permissions are set the same as a windows share.
+
+#### Actions
+
+- `:install` : Creates the dfs namespace on the server
+
+#### Properties
+
+- `name` : The name of the namespace to create
+- `full_users` : Which users should have full access to the share
+- `description` : Friendly description for windows to show
+
+```ruby
+windows_dfs_namespace 'prodshare' do
+  description 'Used to easily access shares on other servers'
+  action :install
+  full_users 'localhost\\users'
+```
 
 ## License
 ```
+Copyright 2018, Calastone Ltd.
+Copyright 2018, Chef Software, Inc.
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at

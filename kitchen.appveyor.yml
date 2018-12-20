@@ -25,6 +25,7 @@ verifier:
   name: inspec
 
 suites:
-  - name: default
+  - name: dfs
     run_list:
-      - recipe[test::default]
+      - recipe[test::dfs]
+

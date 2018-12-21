@@ -38,7 +38,7 @@ Creates a folder within dfs as many levels deep as required
 - `:install` : Creates the folder in dfs namespace
 - `:remove` : Deletes the folder in the dfs namespace
 
-#### Properties
+ ### Properties
 
 - `name` : This is the name of the folder to create, it can contain sub folders
 - `namespace_name` : The namespace this should be created within

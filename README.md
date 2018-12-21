@@ -66,7 +66,7 @@ end
 
 Creates a dfs namespace on the local server, permissions are set the same as a windows share.
 
-#### Actions
+ ### Actions
 
 - `:install` : Creates the dfs namespace on the server
 

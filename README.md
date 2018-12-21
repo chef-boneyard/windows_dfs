@@ -70,7 +70,7 @@ Creates a dfs namespace on the local server, permissions are set the same as a w
 
 - `:install` : Creates the dfs namespace on the server
 
-#### Properties
+ ### Properties
 
 - `name` : The name of the namespace to create
 - `full_users` : Which users should have full access to the share

@@ -21,7 +21,7 @@ This cookbook provides a resource for managing DFS on Windows hosts.
 ## windows_dfs_server
 Sets the server configuration for dfs
 
-#### Actions
+ ### Actions
 
 - `configure` : Configures dfs with the specified settings
 

@@ -33,7 +33,7 @@ Sets the server configuration for dfs
 
 Creates a folder within dfs as many levels deep as required
 
-#### Actions
+ ### Actions
 
 - `:install` : Creates the folder in dfs namespace
 - `:remove` : Deletes the folder in the dfs namespace

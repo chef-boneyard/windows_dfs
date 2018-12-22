@@ -40,9 +40,10 @@ Creates a folder within dfs as many levels deep as required
 
  ### Properties
 
-- `name` : This is the name of the folder to create, it can contain sub folders
+- `folder_path` : This is the path of the folder to create
 - `namespace_name` : The namespace this should be created within
 - `target_path` : The target that this path will connect you to
+- `description` : Description for the share
 
 ### Example
 
@@ -72,9 +73,12 @@ Creates a dfs namespace on the local server, permissions are set the same as a w
 
  ### Properties
 
-- `name` : The name of the namespace to create
-- `full_users` : Which users should have full access to the share
+- `namespace_name` : The name of the namespace to create
 - `description` : Friendly description for windows to show
+- `root` : The root from which to create the DFS tree, defaults to C:\DFSRoots
+- `full_users` : Which users should have full access to the share
+- `change_users` : Which users should have change access to the share
+- `read_users` : Which users should have read access to the share
 
 ```ruby
 windows_dfs_namespace 'prodshare' do

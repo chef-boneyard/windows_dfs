@@ -1,8 +1,6 @@
 ---
 driver:
-  forward_agent: yes
   name: vagrant
-  vm_hostname: false # do not bother trying to change the hostname (sometimes fails)
   customize:
     cpus: 2
     memory: 4096
@@ -14,11 +12,15 @@ transport:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
+  product_name: chef
+  product_version: 13
+
+verifier:
+  name: inspec
 
 platforms:
   - name: windows_2012r2-chef13
     driver_config:
-      gui: true
       box: tas50/windows_2012r2
       gui: true
     provisioner:
@@ -31,7 +33,6 @@ platforms:
       require_chef_omnibus: 14
   - name: windows_2016-chef13
     driver_config:
-      gui: true
       box: tas50/windows_2016
       gui: true
     provisioner:
@@ -43,6 +44,6 @@ platforms:
     provisioner:
       require_chef_omnibus: 14
 suites:
-  - name: default
+  - name: dfs
     run_list:
-      - recipe[test::default]
+      - recipe[test::dfs]

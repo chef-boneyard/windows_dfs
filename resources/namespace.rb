@@ -60,7 +60,7 @@ action :delete do
   powershell_script 'Delete DFS Namespace' do
     code <<-EOH
       Remove-DfsnRoot -Path '\\\\#{ENV['COMPUTERNAME']}\\#{new_resource.namespace_name}' -Force
-      EOH
+    EOH
     only_if "return ((Get-DfsnRoot -Path '\\\\#{ENV['COMPUTERNAME']}\\#{new_resource.namespace_name}') -ne $null)"
   end
 

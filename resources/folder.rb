@@ -45,7 +45,7 @@ action :delete do
   powershell_script 'Delete DFS Namespace' do
     code <<-EOH
       Remove-DfsnFolder -Path '\\\\#{ENV['COMPUTERNAME']}\\#{new_resource.namespace_name}\\#{new_resource.folder_path}' -Force
-      EOH
+    EOH
     only_if "return ((Get-DfsnFolder -Path '\\\\#{ENV['COMPUTERNAME']}\\#{new_resource.namespace_name}\\#{new_resource.folder_path}' ) -ne $null)"
   end
 end

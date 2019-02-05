@@ -12,8 +12,6 @@ transport:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
-  product_name: chef
-  product_version: 13
 
 verifier:
   name: inspec
@@ -46,4 +44,4 @@ platforms:
 suites:
   - name: dfs
     run_list:
-      - recipe[test::dfs]
+      - recipe[test::default]

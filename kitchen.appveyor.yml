@@ -27,5 +27,4 @@ verifier:
 suites:
   - name: dfs
     run_list:
-      - recipe[test::dfs]
-
+      - recipe[test::default]

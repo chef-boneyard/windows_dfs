@@ -25,7 +25,7 @@ property :prefer_login_dc, [TrueClass, FalseClass], default: false
 property :enable_site_costed_referrals, [TrueClass, FalseClass], default: false
 property :sync_interval_secs, Integer, default: 3600
 
-load_current_value do |_desired|
+load_current_value do
   ps_results = powershell_out("Get-DfsnServerConfiguration -ComputerName '#{ENV['COMPUTERNAME']}' | Select LdapTimeoutSec, PreferLogonDC, EnableSiteCostedReferrals, SyncIntervalSec, UseFqdn | ConvertTo-Json")
 
   if ps_results.error?

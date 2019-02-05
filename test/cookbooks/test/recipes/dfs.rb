@@ -6,15 +6,10 @@ windows_share 'Test' do
   path 'C:\\Test'
 end
 
-# install windows features
-%w(FS-DFS-Namespace
-   RSAT-DFS-Mgmt-Con
-   RSAT-File-Services).each do |feature|
-  dsc_resource feature do
-    resource    :windowsfeature
-    property    :name, feature
-    property    :ensure, 'Present'
-  end
+windows_feature %w(FS-DFS-Namespace
+                   RSAT-DFS-Mgmt-Con
+                   RSAT-File-Services) do
+  install_method :windows_feature_powershell
 end
 
 windows_dfs_server 'localhost' do

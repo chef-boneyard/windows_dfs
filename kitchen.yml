@@ -12,6 +12,8 @@ transport:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
+  product_name: chef
+  product_version: 14
 
 verifier:
   name: inspec
@@ -22,25 +24,21 @@ platforms:
       box: tas50/windows_2012r2
       gui: true
     provisioner:
-      require_chef_omnibus: 13.1
+      product_version: 13
   - name: windows_2012r2
     driver_config:
       gui: true
       box: tas50/windows_2012r2
-    provisioner:
-      require_chef_omnibus: 14
   - name: windows_2016-chef13
     driver_config:
       box: tas50/windows_2016
       gui: true
     provisioner:
-      require_chef_omnibus: 13.1
+      product_version: 13
   - name: windows_2016
     driver_config:
       gui: true
       box: tas50/windows_2016
-    provisioner:
-      require_chef_omnibus: 14
 suites:
   - name: dfs
     run_list:

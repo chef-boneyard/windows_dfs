@@ -16,7 +16,7 @@ provisioner:
   deprecations_as_errors: true
   product_name: chef
   channel: stable
-  version: 14.6
+  version: 14
 
 platforms:
   - name: windows-2012R2

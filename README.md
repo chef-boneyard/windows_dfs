@@ -1,7 +1,7 @@
 # windows_dfs Cookbook
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/windows_dfs.svg)](https://supermarket.chef.io/cookbooks/windows_dfs)
-[![Build status](https://ci.appveyor.com/api/projects/status/ojhleem9td663n39/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/windows-dfs/branch/master)[![Cookbook Version](https://img.shields.io/cookbook/v/windows_dfs.svg)](https://supermarket.chef.io/cookbooks/windows_dfs)
+[![Build status](https://ci.appveyor.com/api/projects/status/ojhleem9td663n39/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/windows-dfs/branch/master)
 
 This cookbook provides a resource for managing DFS on Windows hosts.
 

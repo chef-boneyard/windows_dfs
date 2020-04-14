@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: test
+# Cookbook:: test
 # Recipe:: default
 
 directory 'C:\\Test\\Child' do

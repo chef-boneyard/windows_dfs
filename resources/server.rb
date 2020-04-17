@@ -1,6 +1,6 @@
 #
 # Author:: Jason Field
-# Cookbook Name:: windows_dfs
+# Cookbook:: windows_dfs
 # Resource:: server
 #
 # Copyright:: 2018, Calastone Ltd.
@@ -19,10 +19,10 @@
 #
 # disable use of FQDN. https://docs.microsoft.com/en-us/powershell/module/dfsn/set-dfsnserverconfiguration?view=win10-ps
 
-property :use_fqdn, [TrueClass, FalseClass], default: false
+property :use_fqdn, [true, false], default: false
 property :ldap_timeout_secs, Integer, default: 30
-property :prefer_login_dc, [TrueClass, FalseClass], default: false
-property :enable_site_costed_referrals, [TrueClass, FalseClass], default: false
+property :prefer_login_dc, [true, false], default: false
+property :enable_site_costed_referrals, [true, false], default: false
 property :sync_interval_secs, Integer, default: 3600
 
 load_current_value do

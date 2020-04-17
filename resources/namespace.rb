@@ -1,6 +1,6 @@
 #
 # Author:: Jason Field
-# Cookbook Name:: windows_dfs
+# Cookbook:: windows_dfs
 # Resource:: namespace
 #
 # Copyright:: 2018, Calastone Ltd.
